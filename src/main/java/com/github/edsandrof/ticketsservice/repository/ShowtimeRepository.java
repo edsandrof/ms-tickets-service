@@ -1,6 +1,6 @@
 package com.github.edsandrof.ticketsservice.repository;
 
-import com.github.edsandrof.ticketsservice.model.Showtime;
+import com.github.edsandrof.ticketsservice.domain.model.Showtime;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDateTime;
