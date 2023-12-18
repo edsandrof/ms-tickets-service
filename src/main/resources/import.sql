@@ -1,8 +1,8 @@
 INSERT INTO tickets.movie (id, director, title) VALUES(1, 'Lana Wachowski', 'The Matrix');
-INSERT INTO tickets.movie (id, director, title) VALUES(2, 'John Carpenter', 'The Thing');
+INSERT INTO tickets.movie (id, director, title) VALUES(3, 'John Carpenter', 'The Thing');
 
 INSERT INTO tickets.showtime (id, movie_id, start_at) VALUES(1, 1, '2023-12-25 20:00:00');
-INSERT INTO tickets.showtime (id, movie_id, start_at) VALUES(2, 2, '2023-12-25 20:00:00');
+INSERT INTO tickets.showtime (id, movie_id, start_at) VALUES(2, 3, '2023-12-25 20:00:00');
 
 INSERT INTO tickets.seat (`number`, reserved, id, showtime_id) VALUES(1, 0, 1, 1);
 INSERT INTO tickets.seat (`number`, reserved, id, showtime_id) VALUES(2, 0, 2, 1);

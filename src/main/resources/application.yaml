@@ -17,6 +17,10 @@ spring:
   config:
     import: 'optional:configserver:http://localhost:8888/'
 
+
+api:
+  movie-service: 'http://localhost:8081'
+
 management:
   endpoints:
     web:
