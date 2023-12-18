@@ -1,4 +1,4 @@
-package com.github.edsandrof.ticketsservice.model;
+package com.github.edsandrof.ticketsservice.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -29,4 +29,8 @@ public class Seat {
     @OneToMany(mappedBy = "seat")
     private List<Ticket> tickets;
 
+    public Seat(int number, Showtime showtime) {
+        this.number = number;
+        this.showtime = showtime;
+    }
 }

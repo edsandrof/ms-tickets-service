@@ -1,4 +1,4 @@
-package com.github.edsandrof.ticketsservice.model;
+package com.github.edsandrof.ticketsservice.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -15,7 +15,6 @@ import java.util.List;
 public class Movie {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String director;
@@ -23,4 +22,10 @@ public class Movie {
     @JsonIgnore
     @OneToMany(mappedBy = "movie", orphanRemoval = true)
     private List<Showtime> showtimes;
+
+    public Movie(Long id, String title, String director) {
+        this.id = id;
+        this.title = title;
+        this.director = director;
+    }
 }

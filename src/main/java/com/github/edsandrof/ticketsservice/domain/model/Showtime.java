@@ -1,4 +1,4 @@
-package com.github.edsandrof.ticketsservice.model;
+package com.github.edsandrof.ticketsservice.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -22,7 +22,7 @@ public class Showtime {
     @JdbcType(TimestampJdbcType.class)
     private LocalDateTime startAt;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "movie_id", nullable = false)
     private Movie movie;
 
@@ -30,6 +30,6 @@ public class Showtime {
     @OneToMany(mappedBy = "showtime", orphanRemoval = true)
     private List<Ticket> tickets;
 
-    @OneToMany(mappedBy = "showtime")
+    @OneToMany(mappedBy = "showtime", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Seat> seats;
 }
