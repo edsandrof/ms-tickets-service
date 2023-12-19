@@ -4,6 +4,7 @@ import com.github.edsandrof.ticketsservice.domain.dto.ShowtimeDTO;
 import com.github.edsandrof.ticketsservice.domain.model.Movie;
 import com.github.edsandrof.ticketsservice.domain.model.Seat;
 import com.github.edsandrof.ticketsservice.domain.model.Showtime;
+import com.github.edsandrof.ticketsservice.exception.ShowtimeNotFoundException;
 import com.github.edsandrof.ticketsservice.repository.ShowtimeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -42,4 +43,8 @@ public class ShowtimeService {
         return seats;
     }
 
+    public Showtime findById(Long id) {
+        return repository.findById(id).orElseThrow(
+                () -> new ShowtimeNotFoundException("Showtime with id not found: " + id));
+    }
 }
