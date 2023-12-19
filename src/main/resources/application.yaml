@@ -15,11 +15,14 @@ spring:
       ddl-auto: create-drop
 
   config:
-    import: 'optional:configserver:http://localhost:8888/'
+    import: 'optional:configserver:http://CONFIG-SERVER'
+
+  zipkin:
+    base-url: 'http://localhost:9411'
 
 
 api:
-  movie-service: 'http://localhost:8081'
+  movie-service: 'http://MOVIES-SERVICE'
 
 
 eureka:
@@ -33,3 +36,7 @@ management:
     web:
       exposure:
         include: '*'
+
+logging:
+  pattern:
+    level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
